@@ -1,16 +1,26 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+n = int(input())
+
+strings = [ input() for i in range(n)]
+
+nums = []
+anton = "anton"
+flag = False
+
+for string in strings:
+    string1 = string
+    for c in string:
+        if c not in anton:
+            string1 = string1.replace(c, '')
+        string2 = string1
+    for i in range(len(string1)):
+        for j in range(len(anton)):
+            if string1[j] != anton[j]:
+                string2 = string2[i + 1:]
+            continue
+    if string2 == anton:
+        nums.append(strings.index(string))
+print(*nums)
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
